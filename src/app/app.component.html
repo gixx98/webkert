@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <span class="fill-remaining-space">Medication Administration</span>
+</mat-toolbar>
+<nav>
+  <div>
+    <mat-toolbar>
+      <div>
+          <a mat-button [routerLink]="['/create']" routerLinkActive="router-link-active">Administrate medications</a>
+          <a mat-button [routerLink]="['/list']" routerLinkActive="router-link-active">List all medications</a>
+      </div>
+  </mat-toolbar>
+  </div>
+</nav>
+
+<mat-card>
+  <router-outlet></router-outlet>
+</mat-card>

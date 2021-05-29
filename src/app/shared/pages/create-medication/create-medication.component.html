@@ -1,0 +1,63 @@
+<div class="container">
+  <form [formGroup]="medicationForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="form-element">
+      <mat-select placeholder="Select the status of the administration" formControlName="status" required>
+        <mat-option>-</mat-option>
+        <mat-option *ngFor="let status of statuses" [value]="status">
+            {{status}}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+    <mat-form-field class="form-element">
+        <mat-select placeholder="Categorize patient" formControlName="category" required>
+          <mat-option *ngFor="let category of categories" [value]="category" required>
+              {{category}}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+    <br />
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Name of the medication" formControlName="medication" required/>
+    </mat-form-field>
+    <br />
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Who took the med?" formControlName="subject" required/>
+    </mat-form-field>
+    <br />
+    <mat-form-field class="form-element">
+        <mat-select placeholder="Who gave the med?" formControlName="actor" required>
+          <mat-option *ngFor="let actor of actors" [value]="actor">
+              {{actor}}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+    <br />
+    <div formGroupName="effective">
+      <mat-label class="margin10">Please give a specific date or period of time when the medication took place</mat-label><br>
+        <mat-form-field class="example-full-width" appearance="fill" class="margin10">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="effectiveDateTime">
+            <mat-datepicker-toggle matSuffix [for]="picker">
+              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          
+          <div formGroupName="effectivePeriod">
+            <mat-form-field appearance="fill">
+                <mat-label>Enter period of days</mat-label>
+                <mat-date-range-input [rangePicker]="picker1">
+                  <input matStartDate formControlName="start" placeholder="Start date">
+                  <input matEndDate formControlName="end" placeholder="End date">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker1></mat-date-range-picker>
+
+              </mat-form-field>
+          </div>
+    </div>
+        
+    <button mat-button color="primary" class="form-element" style="font-size: 20px;" [disabled]="!medicationForm.valid" >Submit</button>
+  </form>
+</div>
