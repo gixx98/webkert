@@ -1,3 +1,4 @@
+import { HomeMedicationComponent } from './shared/pages/home-medication/home-medication.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateMedicationComponent } from './shared/pages/create-medication/create-medication.component';
@@ -5,10 +6,10 @@ import { ListMedicationComponent } from './shared/pages/list-medication/list-med
 import { UpdateMedicationComponent } from './shared/pages/update-medication/update-medication.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/create', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path: 'home', component: HomeMedicationComponent},
   {path: 'create', component: CreateMedicationComponent},
   {path: 'list', component: ListMedicationComponent},
-  {path: 'update', component: UpdateMedicationComponent},
   {path: 'update/:id', component: UpdateMedicationComponent}
 ];
 

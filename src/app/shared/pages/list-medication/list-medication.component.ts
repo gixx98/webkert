@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Medication } from '../../model/medication.model';
 import { MedicationServiceService } from '../../services/medication-service.service';
-import {convertTimestamp} from 'convert-firebase-timestamp';
 
 @Component({
   selector: 'app-list-medication',

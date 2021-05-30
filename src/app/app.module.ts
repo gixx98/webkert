@@ -24,6 +24,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeMedicationComponent } from './shared/pages/home-medication/home-medication.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CreateMedicationComponent,
     ListMedicationComponent,
     UpdateMedicationComponent,
+    HomeMedicationComponent,
   ],
   imports: [
     BrowserModule,
